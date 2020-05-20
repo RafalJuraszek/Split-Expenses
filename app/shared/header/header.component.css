@@ -1,0 +1,11 @@
+
+Label {
+
+    font-size: 35;
+    margin-top: 8;
+}
+ActionBar {
+    background-color: #0081A7;
+    color: white;
+    height: 18.75%;
+}

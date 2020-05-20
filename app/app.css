@@ -1,0 +1,37 @@
+@import "~nativescript-theme-core/css/core.light.css";
+
+
+Button.primary-button {
+    background-color: #A93F55;
+    color: white;
+}
+Image.rounded-image {
+    border-radius: 50%;
+    width:200px;
+
+}
+Page {
+    background-color: #F3F3F3;
+}
+
+
+BottomNavigation {
+    color: #0081A7;
+}
+.far {
+    font-family: fa-regular-400;
+    font-weight: 400;
+}
+
+.fab {
+    font-family: fa-brands-400;
+    font-weight: 400;
+}
+
+.fas {
+    font-family: fa-solid-900;
+    font-weight: 900;
+}
+
+
+

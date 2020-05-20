@@ -1,0 +1,39 @@
+
+.btn-group Button {
+    background-color: white; /* Green background */
+    cursor: pointer; /* Pointer/hand icon */
+    color: #A93F55;
+    border-width: 1;
+    border-color: #0081A7;
+    margin-top: 9;
+
+}
+.list-picture {
+    border-width: 1;
+    border-color: #0081A7;
+    border-radius: 10;
+
+
+}
+
+.list-item {
+    background-color: white;
+    padding: 5;
+    margin-bottom: 15;
+    margin-left: 10;
+    margin-right: 10;
+    color: #0081A7;
+}
+.list-name {
+    font-size :21;
+    font-weight: bold;
+}
+.list-date {
+    font-size: 15
+}
+.notPaidByMe {
+    color: #A30D34;
+}
+.amount {
+    font-size: 23;
+}

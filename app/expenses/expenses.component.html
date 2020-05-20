@@ -1,0 +1,58 @@
+<header-app title="Expenses"></header-app>
+<GridLayout rows="auto, auto, auto, *" backgroundColor="#F3F3F3" >
+    <StackLayout row="0" orientation="horizontal" horizontalAlignment="center" class="btn-group m-b-10">
+        <Button text="Balances" (tap)="settleUp()" borderColor="#0081A7" borderRadius="10 0 0 10"></Button>
+        <Button text="Settle up" (tap)="settleUp()" borderRadius="0 10 10 0"></Button>
+    </StackLayout>
+
+
+    <ScrollView row="1" class="m-b-10">
+
+        <ListView height="340" [items]="expensesList" separatorColor="transparent">
+
+            <ng-template let-item="item">
+                <StackLayout>
+                    <StackLayout class="list-item">
+                        <AbsoluteLayout >
+                            <StackLayout width="20%" class="list-picture">
+
+                                <Image width="65%" height="65%" src="font://&#xf818;" class="fas m-5"></Image>
+                            </StackLayout>
+                            <StackLayout left="80" >
+                                <Label text="{{item.name}}" class="list-name"> </Label>
+                                <Label text="{{item.date}}" class="list-date"> </Label>
+
+                            </StackLayout>
+                            <StackLayout left="260"
+                                         [ngClass]="{'notPaidByMe': user!=item.payer, 'amount' : 1}">
+                                <Label [ngClass]="{'p-l-10' : item.paidAmount < 100}" fontWeight="bold" text="{{item.paidAmount}}"></Label>
+                                <Label text="PLN"></Label>
+                            </StackLayout>
+                        </AbsoluteLayout>
+                        <Label class="list-description">
+
+                            <FormattedString>
+                                <Span text="Paid by {{item.payer}}, you {{user==item.payer ? 'get back' : 'owe'}} "></Span>
+                                <Span text="{{item.restAmount.toString()}}" fontWeight="Bold"></Span>
+                            </FormattedString>
+                        </Label>
+
+                    </StackLayout>
+
+                </StackLayout>
+
+            </ng-template>
+
+
+        </ListView>
+
+    </ScrollView>
+    <StackLayout row="2" class="m-b-10">
+    <primary-button  ></primary-button>
+    </StackLayout>
+
+    <StackLayout row="3">
+    <bottom-header-app></bottom-header-app>
+    </StackLayout>
+</GridLayout>
+

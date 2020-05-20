@@ -1,0 +1,72 @@
+<!-- >> add-modal-dialog-host -->
+<header-app></header-app>
+
+<ScrollView>
+
+    <StackLayout>
+
+        <Image (tap)="userClicked()" class="rounded-image m-15" src="~/images/talin.jpg"></Image>
+        <!--        <Label text='Count the days between the dates' class="m-15 h2" textWrap="true"></Label>-->
+
+        <!--        <Label [text]='startDate | date:"MM/dd/yy"' class="m-15" textWrap="true"></Label>-->
+        <!--        <Button class="primary-button btn-active" text="Enter Start Date" (tap)="getStartDate()"></Button>-->
+
+        <!--        <Label [text]='endDate | date:"MM/dd/yy"' class="m-15" textWrap="true"></Label>-->
+        <!--        <Button class="btn btn-primary btn-active" text="Enter End Date" (tap)="getEndDate()"></Button>-->
+
+        <!--        <Label [text]='"Days: " + days' class="m-15" textWrap="true"></Label>-->
+        <!--        <Button class="btn btn-primary btn-active" text="Count Days" (tap)="countDays()"></Button>-->
+
+        <!--        <Label text='Use different date formats' class="m-15 h2" textWrap="true"></Label>-->
+
+        <!--        <Label [text]='"Date: " + (selectedDate | date: "MM/dd/yy")' class="m-15" textWrap="true"></Label>-->
+        <!--        <Label [text]='"Weekday: " + (selectedDate | date: "EEEE")' class="m-15" textWrap="true"></Label>-->
+        <!--        <Button class="btn btn-primary btn-active" text="Enter Date" (tap)="getDate()"></Button>-->
+        <Image (tap)="userClicked()" class="rounded-image m-15" src="~/images/talin.jpg"></Image>
+
+        <primary-button></primary-button>
+    </StackLayout>
+</ScrollView>
+
+<BottomNavigation selectedIndex="1">
+
+    <!-- The bottom tab UI is created via TabStrip (the containier) and TabStripItem (for each tab)-->
+    <TabStrip>
+        <TabStripItem>
+
+            <Image src="font://&#xf51a;" class="fas"></Image>
+        </TabStripItem>
+
+        <TabStripItem class="special">
+
+            <Image src="font://&#xf155;" class="fas"></Image>
+        </TabStripItem>
+
+        <TabStripItem class="special">
+            <Image src="font://&#xf07a;" class="fas"></Image>
+        </TabStripItem>
+        <TabStripItem class="special">
+            <Image src="font://&#xf0c0;" class="fas"></Image>
+        </TabStripItem>
+
+    </TabStrip>
+
+    <!-- The number of TabContentItem components should corespond to the number of TabStripItem components -->
+    <!--    <TabContentItem>-->
+    <!--        <GridLayout>-->
+    <!--            <Label text="Home Page" class="h2 text-center"></Label>-->
+    <!--        </GridLayout>-->
+    <!--    </TabContentItem>-->
+    <!--    <TabContentItem>-->
+    <!--        <GridLayout>-->
+    <!--            <Label text="Account Page" class="h2 text-center"></Label>-->
+    <!--        </GridLayout>-->
+    <!--    </TabContentItem>-->
+    <!--    <TabContentItem>-->
+    <!--        <GridLayout>-->
+    <!--            <Label text="Search Page" class="h2 text-center"></Label>-->
+    <!--        </GridLayout>-->
+    <!--    </TabContentItem>-->
+
+</BottomNavigation>
+<!-- << add-modal-dialog-host -->
