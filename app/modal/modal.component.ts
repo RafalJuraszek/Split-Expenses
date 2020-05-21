@@ -18,6 +18,7 @@ export class ModalComponent {
     public selectedDate: Date;
     public days: number;
 
+
     constructor(private modalService: ModalDialogService, private vcRef: ViewContainerRef) {
         this.resetDates();
     }
@@ -55,6 +56,7 @@ export class ModalComponent {
     }
 
     private createModelView(): Promise<any> {
+
         const today = new Date();
         const options: ModalDialogOptions = {
             viewContainerRef: this.vcRef,
