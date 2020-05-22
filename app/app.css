@@ -7,7 +7,7 @@ Button.primary-button {
 }
 Image.rounded-image {
     border-radius: 50%;
-    width:200px;
+    width: 100;
 
 }
 Page {

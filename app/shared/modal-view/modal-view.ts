@@ -6,22 +6,27 @@ import { DatePicker } from "tns-core-modules/ui/date-picker";
 @Component({
     moduleId: module.id,
     templateUrl: "./modal-view.html",
+    styleUrls: ["./modal-view.component.css"]
 })
 export class ModalViewComponent implements OnInit {
     public currentdate: Date;
     @ViewChild("datepicker", { read: ElementRef, static: true }) datePickerElement: ElementRef;
+    private users: Array<string>;
 
     constructor(private params: ModalDialogParams) {
         this.currentdate = new Date(params.context);
+        this.users = []
     }
 
     ngOnInit() {
-        let datePicker: DatePicker = <DatePicker>this.datePickerElement.nativeElement;
-        datePicker.year = this.currentdate.getFullYear();
-        datePicker.month = this.currentdate.getMonth() + 1;
-        datePicker.day = this.currentdate.getDate();
-        datePicker.minDate = new Date(1975, 0, 29);
-        datePicker.maxDate = new Date(2045, 4, 12);
+        // let datePicker: DatePicker = <DatePicker>this.datePickerElement.nativeElement;
+        // datePicker.year = this.currentdate.getFullYear();
+        // datePicker.month = this.currentdate.getMonth() + 1;
+        // datePicker.day = this.currentdate.getDate();
+        // datePicker.minDate = new Date(1975, 0, 29);
+        // datePicker.maxDate = new Date(2045, 4, 12);
+
+        this.users.push("ala","ola","ela","kasia")
     }
 
     public submit() {

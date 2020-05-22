@@ -8,26 +8,29 @@ import {
 import {AppComponent} from "~/app.component";
 import {UserService} from "~/user.service";
 import {NativeScriptUIListViewModule} from "nativescript-ui-listview/angular";
-import {ModalViewComponent} from "~/modal/modal-view";
+import {ModalViewComponent} from "~/shared/modal-view/modal-view";
 import {HeaderComponent} from "~/shared/header/header.component";
 import {PrimaryButtonComponent} from "~/shared/button/primary-button.component";
 import {ExpensesComponent} from "~/expenses/expenses.component";
 import {ListComponent} from "~/list/list.component";
-import {ModalComponent} from "~/modal/modal.component";
+import {SettleUpComponent} from "~/settle-up/settle-up.component";
 import {LoginComponent} from "~/login/login.component";
 import {BottomHeaderComponent} from "~/shared/bottom-navigator/bottom-header.component";
+import {registerElement} from "nativescript-angular/element-registry";
 
+
+registerElement("My-Shape", () => require("./shared/MyShape").MyShape);
 const routes = [
     { path: "", component: ExpensesComponent },
     { path: "list", component: ListComponent },
-    { path: "settleUp", component: ModalComponent},
+    { path: "settleUp", component: SettleUpComponent},
     {path: "expenses", component: ExpensesComponent}
 ];
 
 const navigatableComponents = [
     LoginComponent,
     ListComponent,
-    ModalComponent,
+    SettleUpComponent,
     ModalViewComponent,
     ExpensesComponent
 ];

@@ -1,12 +1,20 @@
-<!-- >> add-modal-dialog-host -->
-<StackLayout  opacity="0.1" >
-<header-app></header-app>
+<!-- >> add-settle-up-dialog-host -->
 
-<ScrollView>
+<header-app title="SETTLE UP"></header-app>
+
 
     <StackLayout>
 
-        <Image (tap)="userClicked()" class="rounded-image m-15" src="~/images/talin.jpg"></Image>
+        <Image (tap)="userClicked()" top="5" class="rounded-image m-t-5" src="~/images/talin.jpg"></Image>
+        <My-Shape  style="background-color: #0081A7; height: 50; width: 2%;"></My-Shape>
+        <My-Shape style="background-color: #0081A7; height: 15; width: 5.2%; clip-path: polygon(0% 0%, 100% 0, 100% 0, 50% 100%, 50% 100%);" ></My-Shape>
+
+        <StackLayout orientation="horizontal" horizontalAlignment="center" width="56%" >
+            <TextField class="group" hint="How much?" borderColor="#0081A7" width="65%" borderRadius="10 0 0 10"></TextField>
+            <Button text="PLN" class="group"  borderRadius="0 10 10 0"></Button>
+        </StackLayout>
+        <My-Shape  style="background-color: #0081A7; height: 50; width: 2%;"></My-Shape>
+        <My-Shape style="background-color: #0081A7; height: 15; width: 5.2%; clip-path: polygon(0% 0%, 100% 0, 100% 0, 50% 100%, 50% 100%);" ></My-Shape>
         <!--        <Label text='Count the days between the dates' class="m-15 h2" textWrap="true"></Label>-->
 
         <!--        <Label [text]='startDate | date:"MM/dd/yy"' class="m-15" textWrap="true"></Label>-->
@@ -23,16 +31,17 @@
         <!--        <Label [text]='"Date: " + (selectedDate | date: "MM/dd/yy")' class="m-15" textWrap="true"></Label>-->
         <!--        <Label [text]='"Weekday: " + (selectedDate | date: "EEEE")' class="m-15" textWrap="true"></Label>-->
         <!--        <Button class="btn btn-primary btn-active" text="Enter Date" (tap)="getDate()"></Button>-->
-        <Image (tap)="userClicked()" class="rounded-image m-15" src="~/images/talin.jpg"></Image>
+        <Image (tap)="userClicked()" class="rounded-image m-b-10" src="~/images/talin.jpg"></Image>
 
-        <primary-button></primary-button>
+        <primary-button backgroundColor="#1E7733" value="save"></primary-button>
+
+        <bottom-header-app>
+
+        </bottom-header-app>
     </StackLayout>
-</ScrollView>
 
-<bottom-header-app>
 
-</bottom-header-app>
-</StackLayout>
+
 <!--<BottomNavigation selectedIndex="1">-->
 
 <!--    &lt;!&ndash; The bottom tab UI is created via TabStrip (the containier) and TabStripItem (for each tab)&ndash;&gt;-->
@@ -74,5 +83,5 @@
 <!--    &lt;!&ndash;    </TabContentItem>&ndash;&gt;-->
 
 <!--</BottomNavigation>-->
-<!--&lt;!&ndash; << add-modal-dialog-host &ndash;&gt;-->
+<!--&lt;!&ndash; << add-settle-up-dialog-host &ndash;&gt;-->
 

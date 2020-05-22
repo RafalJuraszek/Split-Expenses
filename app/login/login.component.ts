@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit{
     login() {
         this.userService.login(this.user)
             .subscribe(
-                () => this.router.navigate(["/modal"]),
+                () => this.router.navigate(["/settle-up"]),
                 (exception) => {
                     if(exception.error && exception.error.description) {
                         alert(exception.error.description);

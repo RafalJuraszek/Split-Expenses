@@ -1,0 +1,24 @@
+<!--&lt;!&ndash;  >> passing-parameters-html &ndash;&gt;-->
+<!--<StackLayout class="settle-up-view-style" sdkExampleTitle sdkToggleNavButton>-->
+<!--    <DatePicker #datepicker></DatePicker>-->
+<!--    <Button class="btn btn-primary btn-active" text="Submit" (tap)="submit()"></Button>-->
+<!--</StackLayout>-->
+<!--&lt;!&ndash;  << passing-parameters-html &ndash;&gt;-->
+
+<Page xmlns="http://www.nativescript.org/tns.xsd" shownModally="onShownModally"  >
+    <ScrollView   width="250">
+
+        <ListView  height="450" [items]="users" separatorColor="transparent">
+
+            <ng-template let-item="item">
+                <StackLayout>
+                    <AbsoluteLayout class="list-item">
+                        <Image left="1" src="~/images/talin.jpg" class="rounded-image"></Image>
+                        <Label [text]="item" left="120" top="40%"></Label>
+                    </AbsoluteLayout>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+
+    </ScrollView>
+</Page>

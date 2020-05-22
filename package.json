@@ -61,7 +61,7 @@
         "@angular/compiler-cli": "8.2.14",
         "@ngtools/webpack": "8.3.24",
         "nativescript-dev-webpack": "1.5.1",
-        "tns-platform-declarations": "6.5.0",
+        "tns-platform-declarations": "^6.5.0",
         "typescript": "3.5.3"
     }
 }

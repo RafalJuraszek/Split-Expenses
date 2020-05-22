@@ -1,6 +1,6 @@
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
 import { Component, ViewContainerRef } from "@angular/core";
-import { ModalViewComponent } from "./modal-view";
+import { ModalViewComponent } from "../shared/modal-view/modal-view";
 
 
 const millisecondsInADay = 24 * 60 * 60 * 1000;
@@ -10,9 +10,11 @@ const dayDiff = (firstDate, secondDate) =>
 @Component({
     moduleId: module.id,
     providers: [ModalDialogService],
-    templateUrl: "./modal.component.html"
+    templateUrl: "./settle-up.component.html",
+    styleUrls: ['./settle-up.component.css']
 })
-export class ModalComponent {
+export class SettleUpComponent {
+
     public startDate: Date;
     public endDate: Date;
     public selectedDate: Date;
@@ -57,6 +59,7 @@ export class ModalComponent {
 
     private createModelView(): Promise<any> {
 
+
         const today = new Date();
         const options: ModalDialogOptions = {
             viewContainerRef: this.vcRef,
@@ -64,7 +67,7 @@ export class ModalComponent {
             fullscreen: false,
         };
 
-        // showModal returns a promise with the received parameters from the modal page
+        // showModal returns a promise with the received parameters from the settle-up page
         return this.modalService.showModal(ModalViewComponent, options);
     }
     // << returning-result
