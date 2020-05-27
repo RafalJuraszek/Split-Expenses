@@ -17,6 +17,8 @@ import {SettleUpComponent} from "~/settle-up/settle-up.component";
 import {LoginComponent} from "~/login/login.component";
 import {BottomHeaderComponent} from "~/shared/bottom-navigator/bottom-header.component";
 import {registerElement} from "nativescript-angular/element-registry";
+import {BalancesComponent} from "~/balances/balances.component";
+import {BalanceItemComponent} from "~/balances/balance-item/balance-item.component";
 
 
 registerElement("My-Shape", () => require("./shared/MyShape").MyShape);
@@ -24,6 +26,7 @@ const routes = [
     { path: "", component: ExpensesComponent },
     { path: "list", component: ListComponent },
     { path: "settleUp", component: SettleUpComponent},
+    { path: "balances", component: BalancesComponent},
     {path: "expenses", component: ExpensesComponent}
 ];
 
@@ -32,7 +35,8 @@ const navigatableComponents = [
     ListComponent,
     SettleUpComponent,
     ModalViewComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    BalancesComponent
 ];
 
 @NgModule({
@@ -49,7 +53,8 @@ const navigatableComponents = [
         HeaderComponent,
         PrimaryButtonComponent,
         BottomHeaderComponent,
-        ...navigatableComponents
+        ...navigatableComponents,
+        BalanceItemComponent
     ],
     providers: [UserService],
     bootstrap: [AppComponent],

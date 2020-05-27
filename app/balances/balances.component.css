@@ -1,0 +1,12 @@
+.list-item {
+    background-color: white;
+    padding: 8;
+    margin-bottom: 15;
+    margin-left: 12;
+    margin-right: 12;
+    color: #0081A7;
+}
+.list-name {
+    font-size :21;
+    font-weight: bold;
+}

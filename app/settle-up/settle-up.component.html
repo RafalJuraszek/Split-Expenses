@@ -3,43 +3,62 @@
 <header-app title="SETTLE UP"></header-app>
 
 
-    <StackLayout>
+<StackLayout class="m-t-5">
+    <AbsoluteLayout  horizontalAlignment="center">
+        <Image left="22"   class="rounded-image m-t-5" src="~/images/talin.jpg"></Image>
+        <StackLayout (tap)="userClicked()"  left="128" top="42" borderColor="#0081A7" borderWidth="1" backgroundColor="white" width="20" height="20">
 
-        <Image (tap)="userClicked()" top="5" class="rounded-image m-t-5" src="~/images/talin.jpg"></Image>
-        <My-Shape  style="background-color: #0081A7; height: 50; width: 2%;"></My-Shape>
-        <My-Shape style="background-color: #0081A7; height: 15; width: 5.2%; clip-path: polygon(0% 0%, 100% 0, 100% 0, 50% 100%, 50% 100%);" ></My-Shape>
+            <My-Shape class="m-5" backgroundColor="#A93F55" style="clip-path: polygon(50% 100%, 0 0, 100% 0); width: 50%; height : 40%"></My-Shape>
 
-        <StackLayout orientation="horizontal" horizontalAlignment="center" width="56%" >
-            <TextField class="group" hint="How much?" borderColor="#0081A7" width="65%" borderRadius="10 0 0 10"></TextField>
-            <Button text="PLN" class="group"  borderRadius="0 10 10 0"></Button>
         </StackLayout>
-        <My-Shape  style="background-color: #0081A7; height: 50; width: 2%;"></My-Shape>
-        <My-Shape style="background-color: #0081A7; height: 15; width: 5.2%; clip-path: polygon(0% 0%, 100% 0, 100% 0, 50% 100%, 50% 100%);" ></My-Shape>
-        <!--        <Label text='Count the days between the dates' class="m-15 h2" textWrap="true"></Label>-->
+    </AbsoluteLayout>
+    <My-Shape style="background-color: #0081A7; height: 50; width: 2%;"></My-Shape>
+    <My-Shape
+            style="background-color: #0081A7; height: 15; width: 5.2%; clip-path: polygon(0% 0%, 100% 0, 100% 0, 50% 100%, 50% 100%);"></My-Shape>
 
-        <!--        <Label [text]='startDate | date:"MM/dd/yy"' class="m-15" textWrap="true"></Label>-->
-        <!--        <Button class="primary-button btn-active" text="Enter Start Date" (tap)="getStartDate()"></Button>-->
+    <StackLayout orientation="horizontal" horizontalAlignment="center" width="56%">
+        <TextField class="group" hint="How much?" borderColor="#0081A7" width="65%"
+                   borderRadius="10 0 0 10"></TextField>
 
-        <!--        <Label [text]='endDate | date:"MM/dd/yy"' class="m-15" textWrap="true"></Label>-->
-        <!--        <Button class="btn btn-primary btn-active" text="Enter End Date" (tap)="getEndDate()"></Button>-->
+        <StackLayout orientation="horizontal" class="group" borderRadius="0 10 10 0">
+            <Label   text="PLN" ></Label>
+            <My-Shape class="m-l-5 m-t-5" backgroundColor="#A93F55" style="clip-path: polygon(50% 100%, 0 0, 100% 0); width: 10; height : 10;"></My-Shape>
 
-        <!--        <Label [text]='"Days: " + days' class="m-15" textWrap="true"></Label>-->
-        <!--        <Button class="btn btn-primary btn-active" text="Count Days" (tap)="countDays()"></Button>-->
-
-        <!--        <Label text='Use different date formats' class="m-15 h2" textWrap="true"></Label>-->
-
-        <!--        <Label [text]='"Date: " + (selectedDate | date: "MM/dd/yy")' class="m-15" textWrap="true"></Label>-->
-        <!--        <Label [text]='"Weekday: " + (selectedDate | date: "EEEE")' class="m-15" textWrap="true"></Label>-->
-        <!--        <Button class="btn btn-primary btn-active" text="Enter Date" (tap)="getDate()"></Button>-->
-        <Image (tap)="userClicked()" class="rounded-image m-b-10" src="~/images/talin.jpg"></Image>
-
-        <primary-button backgroundColor="#1E7733" value="save"></primary-button>
-
-        <bottom-header-app>
-
-        </bottom-header-app>
+        </StackLayout>
     </StackLayout>
+    <My-Shape style="background-color: #0081A7; height: 50; width: 2%;"></My-Shape>
+    <My-Shape
+            style="background-color: #0081A7; height: 15; width: 5.2%; clip-path: polygon(0% 0%, 100% 0, 100% 0, 50% 100%, 50% 100%);"></My-Shape>
+    <!--        <Label text='Count the days between the dates' class="m-15 h2" textWrap="true"></Label>-->
 
+    <!--        <Label [text]='startDate | date:"MM/dd/yy"' class="m-15" textWrap="true"></Label>-->
+    <!--        <Button class="primary-button btn-active" text="Enter Start Date" (tap)="getStartDate()"></Button>-->
+
+    <!--        <Label [text]='endDate | date:"MM/dd/yy"' class="m-15" textWrap="true"></Label>-->
+    <!--        <Button class="btn btn-primary btn-active" text="Enter End Date" (tap)="getEndDate()"></Button>-->
+
+    <!--        <Label [text]='"Days: " + days' class="m-15" textWrap="true"></Label>-->
+    <!--        <Button class="btn btn-primary btn-active" text="Count Days" (tap)="countDays()"></Button>-->
+
+    <!--        <Label text='Use different date formats' class="m-15 h2" textWrap="true"></Label>-->
+
+    <!--        <Label [text]='"Date: " + (selectedDate | date: "MM/dd/yy")' class="m-15" textWrap="true"></Label>-->
+    <!--        <Label [text]='"Weekday: " + (selectedDate | date: "EEEE")' class="m-15" textWrap="true"></Label>-->
+    <!--        <Button class="btn btn-primary btn-active" text="Enter Date" (tap)="getDate()"></Button>-->
+    <AbsoluteLayout  horizontalAlignment="center">
+        <Image left="22"   class="rounded-image m-b-20" src="~/images/talin.jpg"></Image>
+        <StackLayout (tap)="userClicked()"   left="128" top="42" borderColor="#0081A7" borderWidth="1" backgroundColor="white" width="20" height="20">
+
+            <My-Shape class="m-5" backgroundColor="#A93F55" style="clip-path: polygon(50% 100%, 0 0, 100% 0); width: 50%; height : 40%"></My-Shape>
+
+        </StackLayout>
+    </AbsoluteLayout>
+    <primary-button backgroundColor="#1E7733" value="save"></primary-button>
+
+    <bottom-header-app>
+
+    </bottom-header-app>
+</StackLayout>
 
 
 <!--<BottomNavigation selectedIndex="1">-->

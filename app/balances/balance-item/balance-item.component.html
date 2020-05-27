@@ -1,0 +1,49 @@
+<StackLayout (tap)="clickToRemove()" >
+    <StackLayout class="list-item" [ngClass]="{selected: selected}">
+        <GridLayout rows="*">
+
+            <StackLayout row="0" orientation="horizontal">
+                <Image width="80" src="~/images/talin.jpg" class="rounded-image "></Image>
+
+
+                <Label verticalAlignment="center" [text]="input" class="list-name m-l-10"> </Label>
+            </StackLayout>
+            <Label row="0" horizontalAlignment="right" [ngClass]="{notclicked: !clicked, clicked: clicked}"
+                   style="background-color: #A93F55;" (tap)="click()"></Label>
+
+
+        </GridLayout>
+    </StackLayout>
+        <ScrollView height="150" *ngIf="clicked" backgroundColor="#F3F3F3" >
+
+            <ListView height="150" [items]="list" separatorColor="transparent" >
+
+
+                <ng-template let-item="item">
+                    <StackLayout>
+                        <StackLayout class="list-item-nested">
+                            <GridLayout rows="*">
+
+                                <StackLayout row="0" orientation="horizontal">
+                                    <Image width="69" src="~/images/talin.jpg" class="rounded-image "></Image>
+
+
+                                    <Label verticalAlignment="center" [text]="input" class="list-name-nested m-l-10"> </Label>
+                                </StackLayout>
+
+
+                            </GridLayout>
+                        </StackLayout>
+                    </StackLayout>
+
+                </ng-template>
+
+
+            </ListView>
+
+        </ScrollView>
+
+
+
+
+</StackLayout>

@@ -1,0 +1,24 @@
+<header-app title="BALANCES"></header-app>
+<GridLayout rows="auto, auto, auto, *" backgroundColor="#F3F3F3">
+    <ScrollView row="1" class="m-b-10 m-t-10">
+
+        <ListView height="380" [items]="balancesList" separatorColor="transparent">
+
+            <ng-template let-item="item" >
+                <app-balance-item [input]="item" [selected]="clickedPerson===item" (handleRemove)="clickToRemove($event)"></app-balance-item>
+
+            </ng-template>
+
+
+        </ListView>
+
+    </ScrollView>
+
+    <StackLayout (tap)="remove()" row="2" class="m-b-10">
+        <primary-button value="remove"></primary-button>
+    </StackLayout>
+
+    <StackLayout row="3">
+        <bottom-header-app></bottom-header-app>
+    </StackLayout>
+</GridLayout>

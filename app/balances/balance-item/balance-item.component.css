@@ -1,0 +1,41 @@
+.list-item {
+    background-color: white;
+    padding: 8;
+    margin-bottom: 15;
+    margin-left: 12;
+    margin-right: 12;
+    color: #0081A7;
+}
+.selected {
+    border-color: #0081A7;
+    border-width: 1;
+}
+.list-item-nested {
+    background-color: white;
+    padding: 8;
+
+    margin-bottom: 15;
+    margin-left: 89;
+    margin-right: 25;
+    color: #0081A7;
+}
+.list-name {
+    font-size :20;
+    font-weight: bold;
+}
+.list-name-nested {
+    font-size :16;
+    font-weight: bold;
+}
+
+.notclicked {
+
+    clip-path: polygon(0 100%, 0 0, 100% 50%);
+    height: 50%;
+    width: 8%;
+}
+.clicked {
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    height: 50%;
+    width: 8%;
+}

@@ -29,5 +29,8 @@ export class ExpensesComponent {
     settleUp() {
         this.router.navigate(["/settleUp"])
     }
+    balances() {
+        this.router.navigateByUrl('/balances');
+    }
 
 }
