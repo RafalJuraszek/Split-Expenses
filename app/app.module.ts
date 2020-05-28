@@ -19,6 +19,7 @@ import {BottomHeaderComponent} from "~/shared/bottom-navigator/bottom-header.com
 import {registerElement} from "nativescript-angular/element-registry";
 import {BalancesComponent} from "~/balances/balances.component";
 import {BalanceItemComponent} from "~/balances/balance-item/balance-item.component";
+import {BalancesService} from "~/services/balances.service";
 
 
 registerElement("My-Shape", () => require("./shared/MyShape").MyShape);
@@ -56,7 +57,7 @@ const navigatableComponents = [
         ...navigatableComponents,
         BalanceItemComponent
     ],
-    providers: [UserService],
+    providers: [UserService, BalancesService],
     bootstrap: [AppComponent],
     entryComponents: [ModalViewComponent]
 })

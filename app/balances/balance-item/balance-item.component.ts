@@ -1,18 +1,24 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 @Component({
     selector: "app-balance-item",
     templateUrl: "./balance-item.component.html",
     styleUrls: ["./balance-item.component.css"]
 })
-export class BalanceItemComponent {
+export class BalanceItemComponent implements OnInit {
 
     @Input() input;
     @Input() selected;
     @Output() handleRemove = new EventEmitter<string>();
     clicked = false;
 
-    list = ['ala','ola'];
+
+    constructor() {
+
+    }
+    ngOnInit(): void {
+        console.log(this.input.interestedList)
+    }
 
     click() {
         this.clicked = !this.clicked;

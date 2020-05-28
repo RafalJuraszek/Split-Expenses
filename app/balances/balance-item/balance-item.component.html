@@ -1,12 +1,18 @@
-<StackLayout (tap)="clickToRemove()" >
+<StackLayout (tap)="clickToRemove()">
     <StackLayout class="list-item" [ngClass]="{selected: selected}">
         <GridLayout rows="*">
 
             <StackLayout row="0" orientation="horizontal">
-                <Image width="80" src="~/images/talin.jpg" class="rounded-image "></Image>
+                <Image width="80"  src="~/images/{{input.user.picturePath}}" class="rounded-image "></Image>
 
+                <Label verticalAlignment="center" class="list-name m-l-10" >
 
-                <Label verticalAlignment="center" [text]="input" class="list-name m-l-10"> </Label>
+                    <FormattedString >
+                        <Span text="{{input.user.name}} " fontWeight="Bold" ></Span>
+                        <Span text="{{!input.inDebt ? 'get\'s back ' : 'owes '}} "></Span>
+                        <Span text="{{input.quota.toString()}}" fontWeight="Bold"></Span>
+                    </FormattedString>
+                </Label>
             </StackLayout>
             <Label row="0" horizontalAlignment="right" [ngClass]="{notclicked: !clicked, clicked: clicked}"
                    style="background-color: #A93F55;" (tap)="click()"></Label>
@@ -14,36 +20,41 @@
 
         </GridLayout>
     </StackLayout>
-        <ScrollView height="150" *ngIf="clicked" backgroundColor="#F3F3F3" >
+    <ScrollView *ngIf="clicked" >
 
-            <ListView height="150" [items]="list" separatorColor="transparent" >
-
-
-                <ng-template let-item="item">
-                    <StackLayout>
-                        <StackLayout class="list-item-nested">
-                            <GridLayout rows="*">
-
-                                <StackLayout row="0" orientation="horizontal">
-                                    <Image width="69" src="~/images/talin.jpg" class="rounded-image "></Image>
+        <ListView [ngClass]="{empty: input.interestedList.length===0, notempty: input.interestedList.length!==0}"   [items]="input.interestedList" separatorColor="transparent">
 
 
-                                    <Label verticalAlignment="center" [text]="input" class="list-name-nested m-l-10"> </Label>
-                                </StackLayout>
+            <ng-template let-item="item">
+                <StackLayout>
+                    <StackLayout class="list-item-nested">
+                        <GridLayout rows="*">
+
+                            <StackLayout row="0" orientation="horizontal">
+                                <Image width="69" src="~/images/{{item.user.picturePath}}" class="rounded-image "></Image>
+                                <Label verticalAlignment="center" class="list-name-nested m-l-10" >
+
+                                    <FormattedString >
+                                        <Span text="{{item.user.name}} " fontWeight="Bold" ></Span>
+                                        <Span text="{{!item.inDebt ? 'get\'s back ' : 'owes '}} "></Span>
+                                        <Span text="{{item.quota.toString()}}" fontWeight="Bold"></Span>
+                                    </FormattedString>
+                                </Label>
 
 
-                            </GridLayout>
-                        </StackLayout>
+                            </StackLayout>
+
+
+                        </GridLayout>
                     </StackLayout>
+                </StackLayout>
 
-                </ng-template>
-
-
-            </ListView>
-
-        </ScrollView>
+            </ng-template>
 
 
+        </ListView>
+
+    </ScrollView>
 
 
 </StackLayout>

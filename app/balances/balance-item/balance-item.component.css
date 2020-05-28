@@ -21,11 +21,10 @@
 }
 .list-name {
     font-size :20;
-    font-weight: bold;
 }
 .list-name-nested {
     font-size :16;
-    font-weight: bold;
+
 }
 
 .notclicked {
@@ -38,4 +37,11 @@
     clip-path: polygon(50% 100%, 0 0, 100% 0);
     height: 50%;
     width: 8%;
+}
+.empty {
+    height: 0;
+}
+
+.notempty {
+    height: 120;
 }
