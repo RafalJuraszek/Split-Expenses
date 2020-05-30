@@ -5,8 +5,8 @@
 
 <StackLayout class="m-t-5">
     <AbsoluteLayout  horizontalAlignment="center">
-        <Image left="22"   class="rounded-image m-t-5" src="~/images/talin.jpg"></Image>
-        <StackLayout (tap)="userClicked()"  left="128" top="42" borderColor="#0081A7" borderWidth="1" backgroundColor="white" width="20" height="20">
+        <Image left="22"   class="rounded-image m-t-5" src="~/images/{{pickedUsers[0] ? pickedUsers[0].picturePath : 'rafal.jpg'}}"></Image>
+        <StackLayout (tap)="userClicked(0)"  left="128" top="42" borderColor="#0081A7" borderWidth="1" backgroundColor="white" width="20" height="20">
 
             <My-Shape class="m-5" backgroundColor="#A93F55" style="clip-path: polygon(50% 100%, 0 0, 100% 0); width: 50%; height : 40%"></My-Shape>
 
@@ -46,8 +46,8 @@
     <!--        <Label [text]='"Weekday: " + (selectedDate | date: "EEEE")' class="m-15" textWrap="true"></Label>-->
     <!--        <Button class="btn btn-primary btn-active" text="Enter Date" (tap)="getDate()"></Button>-->
     <AbsoluteLayout  horizontalAlignment="center">
-        <Image left="22"   class="rounded-image m-b-20" src="~/images/talin.jpg"></Image>
-        <StackLayout (tap)="userClicked()"   left="128" top="42" borderColor="#0081A7" borderWidth="1" backgroundColor="white" width="20" height="20">
+        <Image left="22"   class="rounded-image m-b-20" src="~/images/{{pickedUsers[1] ? pickedUsers[1].picturePath : 'rafal.jpg'}}"></Image>
+        <StackLayout (tap)="userClicked(1)"   left="128" top="42" borderColor="#0081A7" borderWidth="1" backgroundColor="white" width="20" height="20">
 
             <My-Shape class="m-5" backgroundColor="#A93F55" style="clip-path: polygon(50% 100%, 0 0, 100% 0); width: 50%; height : 40%"></My-Shape>
 

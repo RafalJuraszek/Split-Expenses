@@ -5,16 +5,16 @@
 <!--</StackLayout>-->
 <!--&lt;!&ndash;  << passing-parameters-html &ndash;&gt;-->
 
-<Page xmlns="http://www.nativescript.org/tns.xsd" shownModally="onShownModally"  >
+<Page xmlns="http://www.nativescript.org/tns.xsd"   >
     <ScrollView   width="250">
 
         <ListView  height="450" [items]="users" separatorColor="transparent">
 
-            <ng-template let-item="item">
-                <StackLayout>
+            <ng-template let-item="item" >
+                <StackLayout (tap)="submit(item)">
                     <AbsoluteLayout class="list-item">
-                        <Image left="1" src="~/images/talin.jpg" class="rounded-image"></Image>
-                        <Label [text]="item" left="120" top="40%"></Label>
+                        <Image left="1" src="~/images/{{item.picturePath}}" class="rounded-image"></Image>
+                        <Label [text]="item.name" left="120" top="40%"></Label>
                     </AbsoluteLayout>
                 </StackLayout>
             </ng-template>

@@ -9,13 +9,16 @@ import { DatePicker } from "tns-core-modules/ui/date-picker";
     styleUrls: ["./modal-view.component.css"]
 })
 export class ModalViewComponent implements OnInit {
-    public currentdate: Date;
+
+
     @ViewChild("datepicker", { read: ElementRef, static: true }) datePickerElement: ElementRef;
-    private users: Array<string>;
+    private users = [];
+    private pickedNumber
 
     constructor(private params: ModalDialogParams) {
-        this.currentdate = new Date(params.context);
-        this.users = []
+
+        this.users = params.context[0]
+        this.pickedNumber = params.context[1]
     }
 
     ngOnInit() {
@@ -26,14 +29,14 @@ export class ModalViewComponent implements OnInit {
         // datePicker.minDate = new Date(1975, 0, 29);
         // datePicker.maxDate = new Date(2045, 4, 12);
 
-        this.users.push("ala","ola","ela","kasia")
+
     }
 
-    public submit() {
-        let datePicker: DatePicker = <DatePicker>this.datePickerElement.nativeElement;
-        console.log("date result");
-        console.log(datePicker.date);
-        this.params.closeCallback(datePicker.date);
+    public submit(user) {
+
+
+        console.log(user);
+        this.params.closeCallback([user, this.pickedNumber]);
     }
 }
 // << passing-parameters
