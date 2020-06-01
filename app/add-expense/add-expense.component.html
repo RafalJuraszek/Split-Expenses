@@ -1,0 +1,38 @@
+<header-app title="ADD EXPENSE"></header-app>
+<GridLayout rows="auto, 2*, *" backgroundColor="#F3F3F3">
+
+    <StackLayout class="add-inputs m-t-15" row="0">
+        <StackLayout class="label ">
+            <TextField horizontalAlignment="center" verticalAlignment="center" hint="For what"
+            ></TextField>
+        </StackLayout>
+        <StackLayout orientation="horizontal" class="label" >
+            <StackLayout width="65%" borderRightWidth="1" borderColor="#2A4D70" >
+                <TextField horizontalAlignment="center" hint="How much?"
+                ></TextField>
+            </StackLayout>
+            <StackLayout width="35%" orientation="horizontal"  >
+                <Label class="m-l-10" verticalAlignment="center" text="PLN"></Label>
+                <My-Shape verticalAlignment="center"  class="m-l-5" backgroundColor="#A93F55"
+                          style="clip-path: polygon(50% 100%, 0 0, 100% 0); width: 15; height : 15;"></My-Shape>
+
+            </StackLayout>
+        </StackLayout>
+        <StackLayout (tap)="whoPaid()" class="label " padding="11" >
+            <Label horizontalAlignment="center" fontWeight="bold" verticalAlignment="center" text="Who paid?"
+            ></Label>
+        </StackLayout>
+        <StackLayout class="label " padding="11" >
+            <Label horizontalAlignment="center" fontWeight="bold" verticalAlignment="center" text="How to split?"
+            ></Label>
+        </StackLayout>
+    </StackLayout>
+
+    <StackLayout row="1"   verticalAlignment="bottom">
+    <primary-button  backgroundColor="#1E7733" value="save"></primary-button>
+    </StackLayout>
+    <StackLayout row="2">
+        <bottom-header-app></bottom-header-app>
+    </StackLayout>
+</GridLayout>
+

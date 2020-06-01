@@ -33,4 +33,8 @@ export class ExpensesComponent {
         this.router.navigateByUrl('/balances');
     }
 
+    addExpense() {
+        this.router.navigateByUrl('/addExpense');
+    }
+
 }

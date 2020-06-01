@@ -2,10 +2,10 @@
 <GridLayout rows="auto, auto, auto, *" backgroundColor="#F3F3F3">
     <ScrollView row="1" class="m-b-10 m-t-10">
 
-        <ListView height="380" [items]="balancesList" separatorColor="transparent">
+        <ListView height="380" [items]="usersList" separatorColor="transparent">
 
-            <ng-template let-item="item" >
-                <app-balance-item [input]="item" [selected]="clickedPerson===item" (handleRemove)="clickToRemove($event)"></app-balance-item>
+            <ng-template  let-item="item" >
+                <app-balance-item  [input]="item" [selected]="clickedPerson===item" (handleRemove)="clickToRemove($event)"></app-balance-item>
 
             </ng-template>
 

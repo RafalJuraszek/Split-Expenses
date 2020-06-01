@@ -1,5 +1,5 @@
 <header-app title="EXPENSES"></header-app>
-<GridLayout rows="auto, auto, auto, *" backgroundColor="#F3F3F3" >
+<GridLayout rows="auto, auto, *, *" backgroundColor="#F3F3F3" >
     <StackLayout row="0" orientation="horizontal" horizontalAlignment="center" class="btn-group m-b-10">
         <Button text="Balances" (tap)="balances()" borderColor="#0081A7" borderRadius="10 0 0 10"></Button>
         <Button text="Settle up" (tap)="settleUp()" borderRadius="0 10 10 0"></Button>
@@ -47,8 +47,8 @@
         </ListView>
 
     </ScrollView>
-    <StackLayout row="2" class="m-b-10">
-    <primary-button ></primary-button>
+    <StackLayout  row="2" >
+    <primary-button (tap)="addExpense()" ></primary-button>
     </StackLayout>
 
     <StackLayout row="3">

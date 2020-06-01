@@ -17,7 +17,7 @@ export class BalanceItemComponent implements OnInit {
 
     }
     ngOnInit(): void {
-        console.log(this.input.interestedList)
+
     }
 
     click() {

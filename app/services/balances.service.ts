@@ -11,29 +11,80 @@ import {UserService} from "~/user.service";
 @Injectable()
 export class BalancesService {
 
-    balances: BalanceModel[] = []
+    users = []
 
 
     constructor(private userService: UserService) {
 
-        const users = userService.getUsers();
+        this.users = userService.getUsers();
 
-        this.balances.push(new BalanceModel(users[0], 100, false, [{quota:100, inDebt: true, user : users[1]}], 'rafal.jpg'));
-        this.balances.push(new BalanceModel(users[2], 43, false, [{quota:100, inDebt: true, user : users[1]}, {quota: 57, inDebt: false, user: users[3]}], 'agata.jpg'));
-        this.balances.push(new BalanceModel(users[3], 57, false, [{quota: 57, inDebt: true, user: users[2]}], 'aleksandra.jpg'))
-
-        this.balances.push(new BalanceModel(users[1], 200, true, [{quota: 100, inDebt: false, user : users[0]}, {quota: 100, inDebt: false, user: users[2]}], 'ola.jpg'));
     }
 
-    getBalances() {
 
-        return this.balances
-        // return this.http.get<any>(
-        //     this.basicURL + 'balances.json',
-        //     { headers: this.getCommonHeaders() }
-        // ).pipe(
-        //     catchError(this.handleErrors)
-        // );
+    settleUp(payer, receiver, quota) {
+        const payerBalance = payer.balance;
+        const receiverBalance = receiver.balance;
+        console.log(payerBalance)
+        if (payerBalance) {
+            const rec = payerBalance.interestedList.find((el) => {
+                return el.user === receiver
+            })
+            if (rec) {
+
+                this.changeQuota(false, rec, quota);
+                this.changeQuota(true, payerBalance, quota);
+                this.changeQuota(false, receiverBalance, quota);
+                const pay = receiverBalance.interestedList.find((el) => {
+                    return el.user === payer
+                });
+
+                this.changeQuota(true, pay, quota);
+                const index = receiverBalance.interestedList.indexOf(pay);
+                const index2 = payerBalance.interestedList.indexOf(rec);
+
+                if(rec.quota === 0) {
+                    receiverBalance.interestedList.splice(index, 1);
+                    payerBalance.interestedList.splice(index2, 1);
+                }
+                console.log(payerBalance.quota, payerBalance.interestedList.length === 0)
+                if(payerBalance.quota === 0 && payerBalance.interestedList.length === 0) {
+
+                    payer.balance = undefined;
+
+                }
+
+                if(receiverBalance.quota === 0 && receiverBalance.interestedList.length === 0) {
+
+                    receiver.balance = undefined;
+
+                }
+
+            }
+        }
+
+    }
+
+    changeQuota(isPayer, balance, quota) {
+        if(isPayer) {
+            if(balance.inDebt) {
+                balance.quota -= quota;
+            }
+            else {
+                balance.quota += quota;
+            }
+        }
+        else {
+            if(balance.inDebt) {
+                balance.quota +=quota;
+            } else{
+                balance.quota -= quota;
+            }
+        }
+        if (balance.quota < 0) {
+            balance.quota *= -1;
+            balance.inDebt = !balance.inDebt
+        }
+
     }
 
 
@@ -42,6 +93,7 @@ export class BalancesService {
             "Content-Type": "application/json"
         }
     }
+
     handleErrors(error: Response) {
         console.log(JSON.stringify(error));
         return throwError(error);

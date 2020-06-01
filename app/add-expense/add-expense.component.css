@@ -1,0 +1,19 @@
+.add-inputs {
+    color: #A93F55;
+    font-size: 24;
+
+}
+.label {
+    background-color: white;
+
+    width: 70%;
+    margin-bottom: 15;
+
+}
+TextField {
+
+    placeholder-color: #A93F55;
+    background-color: white;
+    cursor: pointer;
+}
+

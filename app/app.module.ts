@@ -20,6 +20,7 @@ import {registerElement} from "nativescript-angular/element-registry";
 import {BalancesComponent} from "~/balances/balances.component";
 import {BalanceItemComponent} from "~/balances/balance-item/balance-item.component";
 import {BalancesService} from "~/services/balances.service";
+import {AddExpenseComponent} from "~/add-expense/add-expense.component";
 
 
 registerElement("My-Shape", () => require("./shared/MyShape").MyShape);
@@ -28,7 +29,8 @@ const routes = [
     { path: "list", component: ListComponent },
     { path: "settleUp", component: SettleUpComponent},
     { path: "balances", component: BalancesComponent},
-    {path: "expenses", component: ExpensesComponent}
+    {path: "expenses", component: ExpensesComponent},
+    {path: "addExpense", component: AddExpenseComponent}
 ];
 
 const navigatableComponents = [
@@ -37,7 +39,8 @@ const navigatableComponents = [
     SettleUpComponent,
     ModalViewComponent,
     ExpensesComponent,
-    BalancesComponent
+    BalancesComponent,
+    AddExpenseComponent
 ];
 
 @NgModule({

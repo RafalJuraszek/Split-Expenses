@@ -3,16 +3,27 @@
         <GridLayout rows="*">
 
             <StackLayout row="0" orientation="horizontal">
-                <Image width="80"  src="~/images/{{input.user.picturePath}}" class="rounded-image "></Image>
+                <Image width="80"  src="~/images/{{input.picturePath}}" class="rounded-image "></Image>
 
-                <Label verticalAlignment="center" class="list-name m-l-10" >
+                <Label *ngIf="input.balance; else equal" verticalAlignment="center" class="list-name m-l-10" >
 
                     <FormattedString >
-                        <Span text="{{input.user.name}} " fontWeight="Bold" ></Span>
-                        <Span text="{{!input.inDebt ? 'get\'s back ' : 'owes '}} "></Span>
-                        <Span text="{{input.quota.toString()}}" fontWeight="Bold"></Span>
+                        <Span text="{{input.name}} " fontWeight="Bold" ></Span>
+                        <Span text="{{!input.balance.inDebt ? 'get\'s back ' : 'owes '}} "></Span>
+                        <Span text="{{input.balance.quota.toString()}}" fontWeight="Bold"></Span>
                     </FormattedString>
                 </Label>
+                <ng-template #equal>
+                    <Label verticalAlignment="center" class="list-name m-l-10" >
+
+                        <FormattedString >
+                            <Span text="{{input.name}} " fontWeight="Bold" ></Span>
+                            <Span text="balance is 0"></Span>
+
+                        </FormattedString>
+                    </Label>
+                </ng-template>
+
             </StackLayout>
             <Label row="0" horizontalAlignment="right" [ngClass]="{notclicked: !clicked, clicked: clicked}"
                    style="background-color: #A93F55;" (tap)="click()"></Label>
@@ -20,9 +31,9 @@
 
         </GridLayout>
     </StackLayout>
-    <ScrollView *ngIf="clicked" >
+    <ScrollView *ngIf="clicked && input.balance" >
 
-        <ListView [ngClass]="{empty: input.interestedList.length===0, notempty: input.interestedList.length!==0}"   [items]="input.interestedList" separatorColor="transparent">
+        <ListView [ngClass]="{empty: input.balance.interestedList.length===0, notempty: input.balance.interestedList.length!==0}"   [items]="input.balance.interestedList" separatorColor="transparent">
 
 
             <ng-template let-item="item">

@@ -17,7 +17,7 @@
             style="background-color: #0081A7; height: 15; width: 5.2%; clip-path: polygon(0% 0%, 100% 0, 100% 0, 50% 100%, 50% 100%);"></My-Shape>
 
     <StackLayout orientation="horizontal" horizontalAlignment="center" width="56%">
-        <TextField class="group" hint="How much?" borderColor="#0081A7" width="65%"
+        <TextField #howmuch class="group" hint="How much?" borderColor="#0081A7" width="65%"
                    borderRadius="10 0 0 10"></TextField>
 
         <StackLayout orientation="horizontal" class="group" borderRadius="0 10 10 0">
@@ -53,7 +53,7 @@
 
         </StackLayout>
     </AbsoluteLayout>
-    <primary-button backgroundColor="#1E7733" value="save"></primary-button>
+    <primary-button (tap)="save()" backgroundColor="#1E7733" value="save"></primary-button>
 
     <bottom-header-app>
 

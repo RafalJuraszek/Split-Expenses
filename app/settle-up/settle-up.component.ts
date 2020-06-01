@@ -1,7 +1,9 @@
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
-import {Component, OnInit, ViewContainerRef} from "@angular/core";
+import {Component, ElementRef, OnInit, ViewChild, ViewContainerRef} from "@angular/core";
 import { ModalViewComponent } from "../shared/modal-view/modal-view";
 import {UserService} from "~/user.service";
+import {BalancesService} from "~/services/balances.service";
+import {Router} from "@angular/router";
 
 
 const millisecondsInADay = 24 * 60 * 60 * 1000;
@@ -16,18 +18,15 @@ const dayDiff = (firstDate, secondDate) =>
 })
 export class SettleUpComponent implements OnInit {
 
-    public startDate: Date;
-    public endDate: Date;
-    public selectedDate: Date;
-    public days: number;
     public users =  [];
     public pickedUsers = [undefined, undefined];
     public pickedNumber = 1;
 
+    @ViewChild('howmuch', {static: false}) howmuch: ElementRef;
 
+    constructor(private modalService: ModalDialogService, private vcRef: ViewContainerRef, private userService: UserService
+                , private balanceService: BalancesService, private router: Router) {
 
-    constructor(private modalService: ModalDialogService, private vcRef: ViewContainerRef, private userService: UserService) {
-        this.resetDates();
     }
 
     ngOnInit(): void {
@@ -38,35 +37,10 @@ export class SettleUpComponent implements OnInit {
         this.pickedNumber = pickedNumber
         this.createModelView().then(data => {
 
-            console.log(data[0], data[1]);
             this.pickedUsers[data[1]] = data[0];
         });
     }
 
-    getStartDate() {
-        this.createModelView().then(result => {
-            if (this.validate(result)) {
-                this.startDate = result;
-            }
-        }).catch(error => this.handleError(error));
-    }
-
-    getEndDate() {
-        this.createModelView().then(result => {
-            if (this.validate(result)) {
-                this.endDate = result;
-            }
-        }).catch(error => this.handleError(error));
-    }
-
-    // >> returning-result
-    getDate() {
-        this.createModelView().then(result => {
-            if (this.validate(result)) {
-                this.selectedDate = result;
-            }
-        }).catch(error => this.handleError(error));
-    }
 
     private createModelView(): Promise<any> {
         const tmpUsers = [...this.users];
@@ -98,30 +72,34 @@ export class SettleUpComponent implements OnInit {
         // showModal returns a promise with the received parameters from the settle-up page
         return this.modalService.showModal(ModalViewComponent, options);
     }
-    // << returning-result
 
-    countDays() {
-        if (this.startDate.getTime() > this.endDate.getTime()) {
-            alert("Enter correct end date");
-        } else {
-            this.days = dayDiff(this.startDate, this.endDate);
+    save() {
+        if(!this.pickedUsers[0] || !this.pickedUsers[1] ) {
+            alert('You have to pick two users!')
         }
+        else {
+            let value = this.howmuch.nativeElement.text;
+            if(value==='') {
+                this.howmuch.nativeElement.focus();
+
+            }
+            else {
+                value = +value;
+                if (isNaN(value)) {
+                    alert('Pick the number!');
+
+                }
+                else {
+
+                    this.balanceService.settleUp(this.pickedUsers[0], this.pickedUsers[1], value);
+                    this.router.navigateByUrl('expenses')
+
+                }
+            }
+
+        }
+
     }
 
-    private resetDates() {
-        this.startDate = new Date("2015-12-12");
-        this.endDate = new Date();
-        this.selectedDate = new Date();
-        this.days = dayDiff(this.startDate, this.endDate);
-    }
 
-    private validate(result: any) {
-        return !!result;
-    }
-
-    private handleError(error: any) {
-        this.resetDates();
-        alert("Please try again!");
-        console.dir(error);
-    }
 }
