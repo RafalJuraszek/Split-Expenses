@@ -1,0 +1,48 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" >
+    <StackLayout width="280">
+        <Label (tap)="submit()" class="m-t-10" style="background-color: #A93F55; clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%); width: 30; height : 30;"></Label>
+        <StackLayout class="dropdown">
+            <DropDown width="90%" horizontalAlignment="center" #dd
+                      class="dropdown-inside"
+                      itemsTextAlignment="center"
+                      [items]="items"
+                      [(ngModel)]="selectedIndex"
+                      (selectedIndexChanged)="onchange($event)"
+                      (opened)="onopen()"
+                      (closed)="onclose()"
+            ></DropDown>
+
+        </StackLayout>
+        <ScrollView width="280">
+
+            <ListView height="450" [items]="users" separatorColor="transparent">
+
+                <ng-template let-item="item" let-index="index">
+                    <StackLayout>
+                        <GridLayout class="list-item" columns="auto,*">
+                            <Image col="0" left="1" src="~/images/{{item.picturePath}}" class="rounded-image"></Image>
+                            <StackLayout verticalAlignment="center" col="1" class="m-l-10 m-r-10">
+                                <Label  class="m-b-5 p-l-10" [text]="item.name"></Label>
+
+                                <TextField  *ngIf="selectedIndex===0; else equally"  [(ngModel)]="howValues[index]"
+                                           class="group" hint="How much?" borderColor="#0081A7"
+                                ></TextField>
+
+                                <ng-template #equally>
+                                    <Label
+                                               [text]="equalValues[index]" class="p-l-20" fontSize="20" fontWeight="bold"  borderWidth="0" borderColor="#0081A7"
+                                    ></Label>
+                                </ng-template>
+
+
+                            </StackLayout>
+
+                        </GridLayout>
+                    </StackLayout>
+                </ng-template>
+            </ListView>
+
+        </ScrollView>
+    </StackLayout>
+</Page>
+

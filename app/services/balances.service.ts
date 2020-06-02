@@ -42,18 +42,18 @@ export class BalancesService {
                 const index = receiverBalance.interestedList.indexOf(pay);
                 const index2 = payerBalance.interestedList.indexOf(rec);
 
-                if(rec.quota === 0) {
+                if (rec.quota === 0) {
                     receiverBalance.interestedList.splice(index, 1);
                     payerBalance.interestedList.splice(index2, 1);
                 }
-                console.log(payerBalance.quota, payerBalance.interestedList.length === 0)
-                if(payerBalance.quota === 0 && payerBalance.interestedList.length === 0) {
+
+                if (payerBalance.quota === 0 && payerBalance.interestedList.length === 0) {
 
                     payer.balance = undefined;
 
                 }
 
-                if(receiverBalance.quota === 0 && receiverBalance.interestedList.length === 0) {
+                if (receiverBalance.quota === 0 && receiverBalance.interestedList.length === 0) {
 
                     receiver.balance = undefined;
 
@@ -65,18 +65,16 @@ export class BalancesService {
     }
 
     changeQuota(isPayer, balance, quota) {
-        if(isPayer) {
-            if(balance.inDebt) {
+        if (isPayer) {
+            if (balance.inDebt) {
                 balance.quota -= quota;
-            }
-            else {
+            } else {
                 balance.quota += quota;
             }
-        }
-        else {
-            if(balance.inDebt) {
-                balance.quota +=quota;
-            } else{
+        } else {
+            if (balance.inDebt) {
+                balance.quota += quota;
+            } else {
                 balance.quota -= quota;
             }
         }
@@ -85,6 +83,43 @@ export class BalancesService {
             balance.inDebt = !balance.inDebt
         }
 
+    }
+
+    addBalance(payer, debtor, quota) {
+        if (payer.balance && debtor.balance) {
+
+            //console.log(payer.balance.interestedList, debtor.balance.interestedList);
+            this.changeQuota(true, payer.balance, quota);
+            this.changeQuota(false, debtor.balance, quota);
+
+            const rec = payer.balance.interestedList.find((el) => {
+                return el.user === debtor;
+            })
+            if (rec) {
+
+                this.changeQuota(false, rec, quota);
+                const pay = debtor.balance.interestedList.find((el) => {
+                    return el.user === payer;
+                })
+                this.changeQuota(true, pay, quota);
+            } else {
+
+                payer.balance.interestedList.push({quota:quota, inDebt:true, user: debtor});
+                debtor.balance.interestedList.push({quota:quota, inDebt: false, user :payer});
+
+            }
+
+
+        } else {
+            if (!payer.balance) {
+                payer.balance = new BalanceModel(quota, false, []);
+            }
+            if (!debtor.balance) {
+                debtor.balance = new BalanceModel(quota, true, []);
+            }
+
+
+        }
     }
 
 

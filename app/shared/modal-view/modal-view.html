@@ -12,10 +12,10 @@
 
             <ng-template let-item="item" >
                 <StackLayout (tap)="submit(item)">
-                    <AbsoluteLayout class="list-item">
+                    <StackLayout class="list-item" orientation="horizontal">
                         <Image left="1" src="~/images/{{item.picturePath}}" class="rounded-image"></Image>
-                        <Label [text]="item.name" left="120" top="40%"></Label>
-                    </AbsoluteLayout>
+                        <Label class="m-l-10" [text]="item.name" verticalAlignment="center" horizontalAlignment="center"></Label>
+                    </StackLayout>
                 </StackLayout>
             </ng-template>
         </ListView>

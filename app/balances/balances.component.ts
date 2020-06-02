@@ -20,6 +20,10 @@ export class BalancesComponent implements OnInit {
 
     ngOnInit(): void {
         this.usersList = this.userService.getUsers();
+        console.log(this.usersList)
+        for(let balance of this.usersList[0].balance.interestedList) {
+            console.log(balance.user.picturePath, balance.user.name)
+        }
     }
 
     clickToRemove(event) {

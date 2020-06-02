@@ -35,8 +35,8 @@ export class ModalViewComponent implements OnInit {
     public submit(user) {
 
 
-        console.log(user);
+
         this.params.closeCallback([user, this.pickedNumber]);
     }
 }
-// << passing-parameters
+

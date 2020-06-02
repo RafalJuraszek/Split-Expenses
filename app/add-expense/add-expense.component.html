@@ -3,12 +3,12 @@
 
     <StackLayout class="add-inputs m-t-15" row="0">
         <StackLayout class="label ">
-            <TextField horizontalAlignment="center" verticalAlignment="center" hint="For what"
+            <TextField #forWhat horizontalAlignment="center" verticalAlignment="center" hint="For what"
             ></TextField>
         </StackLayout>
         <StackLayout orientation="horizontal" class="label" >
             <StackLayout width="65%" borderRightWidth="1" borderColor="#2A4D70" >
-                <TextField horizontalAlignment="center" hint="How much?"
+                <TextField #howMuch horizontalAlignment="center" hint="How much?"
                 ></TextField>
             </StackLayout>
             <StackLayout width="35%" orientation="horizontal"  >
@@ -22,14 +22,14 @@
             <Label horizontalAlignment="center" fontWeight="bold" verticalAlignment="center" text="Who paid?"
             ></Label>
         </StackLayout>
-        <StackLayout class="label " padding="11" >
+        <StackLayout (tap)="howToSplit()" class="label " padding="11" >
             <Label horizontalAlignment="center" fontWeight="bold" verticalAlignment="center" text="How to split?"
             ></Label>
         </StackLayout>
     </StackLayout>
 
     <StackLayout row="1"   verticalAlignment="bottom">
-    <primary-button  backgroundColor="#1E7733" value="save"></primary-button>
+    <primary-button (tap)="save()"  backgroundColor="#1E7733" value="save"></primary-button>
     </StackLayout>
     <StackLayout row="2">
         <bottom-header-app></bottom-header-app>

@@ -21,6 +21,9 @@ import {BalancesComponent} from "~/balances/balances.component";
 import {BalanceItemComponent} from "~/balances/balance-item/balance-item.component";
 import {BalancesService} from "~/services/balances.service";
 import {AddExpenseComponent} from "~/add-expense/add-expense.component";
+import {ModalSplitComponent} from "~/shared/modal-split/modal-split.component";
+import {DropDownModule} from "nativescript-drop-down/angular";
+import {ExpenseService} from "~/services/expense.service";
 
 
 registerElement("My-Shape", () => require("./shared/MyShape").MyShape);
@@ -50,7 +53,8 @@ const navigatableComponents = [
         NativeScriptHttpClientModule,
         NativeScriptRouterModule,
         NativeScriptRouterModule.forRoot(routes),
-        NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        DropDownModule
     ],
     declarations: [
         AppComponent,
@@ -58,11 +62,12 @@ const navigatableComponents = [
         PrimaryButtonComponent,
         BottomHeaderComponent,
         ...navigatableComponents,
-        BalanceItemComponent
+        BalanceItemComponent,
+        ModalSplitComponent
     ],
-    providers: [UserService, BalancesService],
+    providers: [UserService, BalancesService, ExpenseService],
     bootstrap: [AppComponent],
-    entryComponents: [ModalViewComponent]
+    entryComponents: [ModalViewComponent, ModalSplitComponent]
 })
 export class AppModule {
 }

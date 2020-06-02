@@ -1,0 +1,46 @@
+.list-item {
+    background-color: white;
+    padding: 8;
+    margin-bottom: 7;
+    margin-left: 12;
+    margin-right: 12;
+    margin-top: 7;
+    color: #A93F55;
+    font-size: 20;
+    border-width: 1;
+    border-color: #0081A7;
+    border-radius: 10;
+    font-weight: bold;
+}
+.dropdown {
+    border-radius: 10 10 10 10;
+    border-color: #0081A7;
+    border-width: 1;
+    background-color: white;
+    color: #A93F55;
+    margin-bottom: 20;
+    margin-top: 10;
+    margin-left: 12;
+    margin-right: 12;
+    font-size: 24;
+    font-weight: bold;
+
+}
+.dropdown-inside {
+    padding : 8;
+    color : #A93F55;
+}
+Image {
+    width: 90;
+}
+.group{
+    background-color: white; /* Green background */
+    cursor: pointer; /* Pointer/hand icon */
+    color: #A93F55;
+    border-width: 1;
+    border-color: #0081A7;
+    placeholder-color: #A93F55;
+    font-size: 15;
+    font-weight: normal;
+    padding: 10 5 10 5;
+}
