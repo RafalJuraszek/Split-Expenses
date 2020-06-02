@@ -4,6 +4,7 @@ import {UserService} from "~/user.service";
 import {ModalViewComponent} from "~/shared/modal-view/modal-view";
 import {ModalSplitComponent} from "~/shared/modal-split/modal-split.component";
 import {ExpenseService} from "~/services/expense.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: "app-add-expense",
@@ -18,8 +19,10 @@ export class AddExpenseComponent implements OnInit {
     payer;
     howValues;
     type;
+    blocked = true;
 
-    constructor(private modalService: ModalDialogService, private vcRef: ViewContainerRef, private userService: UserService, private expenseService: ExpenseService) {
+    constructor(private modalService: ModalDialogService, private vcRef: ViewContainerRef, private userService: UserService
+                , private expenseService: ExpenseService, private router: Router) {
 
     }
 
@@ -77,6 +80,7 @@ export class AddExpenseComponent implements OnInit {
 
 
         this.expenseService.addExpense(this.howValues, +this.howMuch.nativeElement.text, this.forWhat.nativeElement.text, this.payer);
+        this.router.navigateByUrl('expenses');
     }
 
 }

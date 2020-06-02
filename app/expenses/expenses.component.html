@@ -8,7 +8,7 @@
 
     <ScrollView row="1" class="m-b-10">
 
-        <ListView height="340" [items]="expensesList" separatorColor="transparent">
+        <ListView height="340" [items]="user.expenses" separatorColor="transparent">
 
             <ng-template let-item="item">
                 <StackLayout>
@@ -20,11 +20,11 @@
                             </StackLayout>
                             <StackLayout left="80" >
                                 <Label text="{{item.name}}" class="list-name"> </Label>
-                                <Label text="{{item.date}}" class="list-date"> </Label>
+                                <Label text="{{item.date | date: 'dd.MM.yyyy'}}" class="list-date"> </Label>
 
                             </StackLayout>
                             <StackLayout left="260"
-                                         [ngClass]="{'notPaidByMe': user!=item.payer, 'amount' : 1}">
+                                         [ngClass]="{'notPaidByMe': user!=item.payer,'paidByMe' : user===item.payer, 'amount' : 1}">
                                 <Label [ngClass]="{'p-l-10' : item.paidAmount < 100}" fontWeight="bold" text="{{item.paidAmount}}"></Label>
                                 <Label text="PLN"></Label>
                             </StackLayout>
@@ -32,7 +32,7 @@
                         <Label class="list-description">
 
                             <FormattedString>
-                                <Span text="Paid by {{item.payer}}, you {{user==item.payer ? 'get back' : 'owe'}} "></Span>
+                                <Span text="Paid by {{user===item.payer ? 'you' : item.payer.name}}, you {{user==item.payer ? 'get back' : 'owe'}} "></Span>
                                 <Span text="{{item.restAmount.toString()}}" fontWeight="Bold"></Span>
                             </FormattedString>
                         </Label>

@@ -92,32 +92,42 @@ export class BalancesService {
             this.changeQuota(true, payer.balance, quota);
             this.changeQuota(false, debtor.balance, quota);
 
-            const rec = payer.balance.interestedList.find((el) => {
-                return el.user === debtor;
-            })
-            if (rec) {
-
-                this.changeQuota(false, rec, quota);
-                const pay = debtor.balance.interestedList.find((el) => {
-                    return el.user === payer;
-                })
-                this.changeQuota(true, pay, quota);
-            } else {
-
-                payer.balance.interestedList.push({quota:quota, inDebt:true, user: debtor});
-                debtor.balance.interestedList.push({quota:quota, inDebt: false, user :payer});
-
-            }
+            this.updateInterestedList(payer, debtor, quota);
 
 
         } else {
             if (!payer.balance) {
                 payer.balance = new BalanceModel(quota, false, []);
             }
+            else{
+                this.changeQuota(true, payer.balance, quota);
+            }
             if (!debtor.balance) {
                 debtor.balance = new BalanceModel(quota, true, []);
             }
+            else{
+                this.changeQuota(false, debtor.balance, quota);
+            }
+            this.updateInterestedList(payer, debtor, quota);
 
+        }
+    }
+
+    updateInterestedList(payer, debtor, quota) {
+        const rec = payer.balance.interestedList.find((el) => {
+            return el.user === debtor;
+        })
+        if (rec) {
+
+            this.changeQuota(false, rec, quota);
+            const pay = debtor.balance.interestedList.find((el) => {
+                return el.user === payer;
+            })
+            this.changeQuota(true, pay, quota);
+        } else {
+
+            payer.balance.interestedList.push({quota:quota, inDebt:true, user: debtor});
+            debtor.balance.interestedList.push({quota:quota, inDebt: false, user :payer});
 
         }
     }

@@ -9,7 +9,7 @@ export class UserService {
     constructor() {
 
         this.users.push({name: 'Rafal', picturePath: 'rafal.jpg', balance : null, expenses: []}, {name: 'Agata', picturePath: 'agata.jpg', balance : null, expenses : []}, {name: 'Ola', picturePath: 'ola.jpg', balance : null, expenses : []}
-        , {name: 'Aleksandra', picturePath: 'aleksandra.jpg', balance : null, expenses : []});
+        , {name: 'Ala', picturePath: 'aleksandra.jpg', balance : null, expenses : []});
 
         const firstBalance = new BalanceModel(100, false, [{quota:100, inDebt: true, user : this.users[1]}]);
         const secondBalance= new BalanceModel(43, false, [{quota:100, inDebt: true, user : this.users[1]}, {quota: 57, inDebt: false, user: this.users[3]}]);
