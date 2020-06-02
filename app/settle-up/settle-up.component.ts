@@ -74,8 +74,8 @@ export class SettleUpComponent implements OnInit {
     }
 
     save() {
-        if(!this.pickedUsers[0] || !this.pickedUsers[1] ) {
-            alert('You have to pick two users!')
+        if(!this.pickedUsers[0] || !this.pickedUsers[1] || this.pickedUsers[0]===this.pickedUsers[1] ) {
+            alert('You have to pick two different users!')
         }
         else {
             let value = this.howmuch.nativeElement.text;
