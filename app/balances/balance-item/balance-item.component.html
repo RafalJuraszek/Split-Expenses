@@ -3,21 +3,21 @@
         <GridLayout rows="*">
 
             <StackLayout row="0" orientation="horizontal">
-                <Image width="80"  src="~/images/{{input.picturePath}}" class="rounded-image "></Image>
+                <Image width="80" src="~/images/{{input.picturePath}}" class="rounded-image "></Image>
 
-                <Label *ngIf="input.balance; else equal" verticalAlignment="center" class="list-name m-l-10" >
+                <Label *ngIf="input.balance; else equal" verticalAlignment="center" class="list-name m-l-10">
 
-                    <FormattedString >
-                        <Span text="{{input.name}} " fontWeight="Bold" ></Span>
+                    <FormattedString>
+                        <Span text="{{input.name}} " fontWeight="Bold"></Span>
                         <Span text="{{!input.balance.inDebt ? 'get\'s back ' : 'owes '}} "></Span>
                         <Span text="{{input.balance.quota.toString()}}" fontWeight="Bold"></Span>
                     </FormattedString>
                 </Label>
                 <ng-template #equal>
-                    <Label verticalAlignment="center" class="list-name m-l-10" >
+                    <Label verticalAlignment="center" class="list-name m-l-10">
 
-                        <FormattedString >
-                            <Span text="{{input.name}} " fontWeight="Bold" ></Span>
+                        <FormattedString>
+                            <Span text="{{input.name}} " fontWeight="Bold"></Span>
                             <Span text="balance is 0"></Span>
 
                         </FormattedString>
@@ -31,41 +31,42 @@
 
         </GridLayout>
     </StackLayout>
-    <ScrollView *ngIf="clicked && input.balance" >
-
-        <ListView [ngClass]="{empty: input.balance.interestedList.length===0, notempty: input.balance.interestedList.length!==0}"   [items]="input.balance.interestedList" separatorColor="transparent">
-
-
-            <ng-template let-item="item">
-                <StackLayout>
-                    <StackLayout class="list-item-nested">
-                        <GridLayout rows="*">
-
-                            <StackLayout row="0" orientation="horizontal">
-                                <Image width="69" src="~/images/{{item.user.picturePath}}" class="rounded-image "></Image>
-                                <Label verticalAlignment="center" class="list-name-nested m-l-10" >
-
-                                    <FormattedString >
-                                        <Span text="{{item.user.name}} " fontWeight="Bold" ></Span>
-                                        <Span text="{{!item.inDebt ? 'get\'s back ' : 'owes '}} "></Span>
-                                        <Span text="{{item.quota.toString()}}" fontWeight="Bold"></Span>
-                                    </FormattedString>
-                                </Label>
+    <GridLayout rows="auto" *ngIf="clicked && input.balance">
+            <RadListView row="0"
+                    [items]="input.balance.interestedList" separatorColor="transparent">
 
 
-                            </StackLayout>
+                <ng-template let-item="item">
+                    <StackLayout>
+                        <StackLayout class="list-item-nested">
+                            <GridLayout rows="*">
+
+                                <StackLayout row="0" orientation="horizontal">
+                                    <Image width="69" src="~/images/{{item.user.picturePath}}"
+                                           class="rounded-image "></Image>
+                                    <Label verticalAlignment="center" class="list-name-nested m-l-10">
+
+                                        <FormattedString>
+                                            <Span text="{{item.user.name}} " fontWeight="Bold"></Span>
+                                            <Span text="{{!item.inDebt ? 'get\'s back ' : 'owes '}} "></Span>
+                                            <Span text="{{item.quota.toString()}}" fontWeight="Bold"></Span>
+                                        </FormattedString>
+                                    </Label>
 
 
-                        </GridLayout>
+                                </StackLayout>
+
+
+                            </GridLayout>
+                        </StackLayout>
                     </StackLayout>
-                </StackLayout>
 
-            </ng-template>
+                </ng-template>
 
 
-        </ListView>
+            </RadListView>
 
-    </ScrollView>
+    </GridLayout>
 
 
 </StackLayout>
