@@ -21,10 +21,10 @@ export class ExpenseService {
             if(quotasList[i]) {
                 if(this.users[i] !== payer) {
                     this.balanceService.addBalance(payer, this.users[i], +quotasList[i]);
-                    this.users[i].expenses.push(new ExpenseModel(payer, forWhat, +quotasList[i], howMuch, new Date()));
+                    this.users[i].expenses.unshift(new ExpenseModel(payer, forWhat, +quotasList[i], howMuch, new Date()));
                 }
                 else {
-                    this.users[i].expenses.push(new ExpenseModel(payer, forWhat, howMuch-(+quotasList[i]), howMuch, new Date()));
+                    this.users[i].expenses.unshift(new ExpenseModel(payer, forWhat, howMuch-(+quotasList[i]), howMuch, new Date()));
                     console.log(this.users[i].expenses)
                 }
 
