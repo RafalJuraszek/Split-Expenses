@@ -1,8 +1,4 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Config} from "~/shared/config";
-import {catchError} from "rxjs/operators";
-import {ExpenseModel} from "~/model/expense.model";
 import {BalanceModel} from "~/model/balance.model";
 import {Observable, throwError} from "rxjs";
 import {UserService} from "~/user.service";
@@ -132,15 +128,4 @@ export class BalancesService {
         }
     }
 
-
-    getCommonHeaders() {
-        return {
-            "Content-Type": "application/json"
-        }
-    }
-
-    handleErrors(error: Response) {
-        console.log(JSON.stringify(error));
-        return throwError(error);
-    }
 }
