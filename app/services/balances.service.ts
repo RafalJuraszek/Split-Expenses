@@ -129,15 +129,15 @@ export class BalancesService {
                 })
 
                 if (el) {
+
                     const index = interestedList.indexOf(el)
 
-
-                    user.balance.quota -= interestedList[index].quota;
-
-                    if (user.balance.quota < 0) {
-                        user.balance.quota = (-1) * user.balance.quota;
-                        user.balance.inDebt = !user.balance.inDebt;
-
+                    if(interestedList[index].inDebt)
+                    {
+                        this.changeQuota(false, user.balance, interestedList[index].quota)
+                    }
+                    else {
+                        this.changeQuota(true, user.balance, interestedList[index].quota)
                     }
 
                     interestedList.splice(index, 1)
