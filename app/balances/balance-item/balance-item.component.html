@@ -5,7 +5,7 @@
             <StackLayout row="0" orientation="horizontal">
                 <Image width="80" src="~/images/{{input.picturePath}}" class="rounded-image "></Image>
 
-                <Label *ngIf="input.balance; else equal" verticalAlignment="center" class="list-name m-l-10">
+                <Label *ngIf="input.balance.interestedList.length!==0; else equal" verticalAlignment="center" class="list-name m-l-10">
 
                     <FormattedString>
                         <Span text="{{input.name}} " fontWeight="Bold"></Span>
@@ -17,8 +17,8 @@
                     <Label verticalAlignment="center" class="list-name m-l-10">
 
                         <FormattedString>
-                            <Span text="{{input.name}} " fontWeight="Bold"></Span>
-                            <Span text="balance is 0"></Span>
+                            <Span text="{{input.name}}'s" fontWeight="Bold"></Span>
+                            <Span text=" balance is 0"></Span>
 
                         </FormattedString>
                     </Label>
@@ -31,7 +31,7 @@
 
         </GridLayout>
     </StackLayout>
-    <GridLayout rows="auto" *ngIf="clicked && input.balance">
+    <GridLayout rows="auto" *ngIf="clicked && input.balance.interestedList!==0">
             <RadListView row="0"
                     [items]="input.balance.interestedList" separatorColor="transparent">
 

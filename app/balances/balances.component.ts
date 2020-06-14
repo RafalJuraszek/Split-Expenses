@@ -27,7 +27,8 @@ export class BalancesComponent implements OnInit {
     }
 
      remove() {
-        this.balancesService.removeBalance(this.clickedPerson)
+        this.balancesService.removeBalance(this.clickedPerson);
+         this.clickedPerson = undefined;
 
      }
 
