@@ -13,4 +13,8 @@ export class BottomHeaderComponent {
 
     }
 
+    test() {
+        console.log("elo")
+    }
+
 }

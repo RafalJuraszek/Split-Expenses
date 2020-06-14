@@ -20,7 +20,7 @@ export class BalancesService {
     settleUp(payer, receiver, quota) {
         const payerBalance = payer.balance;
         const receiverBalance = receiver.balance;
-        console.log(payerBalance)
+
         if (payerBalance) {
             const rec = payerBalance.interestedList.find((el) => {
                 return el.user === receiver
@@ -56,6 +56,7 @@ export class BalancesService {
                 }
 
             }
+
         }
 
     }

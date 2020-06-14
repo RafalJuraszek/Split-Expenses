@@ -25,7 +25,7 @@
                                 <Label  class="m-b-5 p-l-10" [text]="item.name"></Label>
 
                                 <TextField  *ngIf="selectedIndex===0; else equally"  [(ngModel)]="howValues[index]"
-                                           class="group" hint="How much?" borderColor="#0081A7"
+                                           class="group" hint="How much?" borderColor="#0081A7" keyboardType="number"
                                 ></TextField>
 
                                 <ng-template #equally>
