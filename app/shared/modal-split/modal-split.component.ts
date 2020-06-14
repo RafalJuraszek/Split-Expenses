@@ -44,13 +44,6 @@ export class ModalSplitComponent implements OnInit {
     }
 
     ngOnInit() {
-        // let datePicker: DatePicker = <DatePicker>this.datePickerElement.nativeElement;
-        // datePicker.year = this.currentdate.getFullYear();
-        // datePicker.month = this.currentdate.getMonth() + 1;
-        // datePicker.day = this.currentdate.getDate();
-        // datePicker.minDate = new Date(1975, 0, 29);
-        // datePicker.maxDate = new Date(2045, 4, 12);
-
 
     }
 
