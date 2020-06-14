@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {BalanceModel} from "~/model/balance.model";
-import {Observable, throwError} from "rxjs";
 import {UserService} from "~/user.service";
 
 
@@ -126,6 +125,44 @@ export class BalancesService {
             payer.balance.interestedList.push({quota:quota, inDebt:true, user: debtor});
             debtor.balance.interestedList.push({quota:quota, inDebt: false, user :payer});
 
+        }
+    }
+
+    removeBalance(clickedPerson ) {
+        if (clickedPerson !== undefined) {
+
+            const index = this.users.indexOf(clickedPerson)
+            this.users[index].balance = undefined;
+
+            for(let user of this.users) {
+                if(user.balance) {
+                    let interestedList = user.balance.interestedList
+                    const el = interestedList.find((el) => {
+                        return el.user === clickedPerson
+                    })
+                    if(el!==-1) {
+                        const index = interestedList.indexOf(el)
+                        //const quota = interestedList[index].inDebt ? interestedList[index].quota *(-1) : interestedList[index].quota;
+
+                        user.balance.quota-=interestedList[index].quota;
+                        if(user.balance.quota < 0)
+                        {
+                            user.balance.quota = (-1) * user.balance.quota;
+                            user.balance.inDebt = !user.balance.inDebt;
+
+                        }
+                        interestedList.splice(index, 1)
+                        if(user.balance.interestedList.length===0)
+                        {
+                            user.balance = undefined;
+                        }
+
+                    }
+                }
+
+            }
+
+            clickedPerson = undefined
         }
     }
 

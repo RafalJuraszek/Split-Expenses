@@ -14,16 +14,12 @@ export class BalancesComponent implements OnInit {
     usersList = []
     clickedPerson = undefined;
 
-    constructor(private router: Router, private userService: UserService) {
+    constructor(private router: Router, private userService: UserService, private balancesService: BalancesService) {
 
     }
 
     ngOnInit(): void {
         this.usersList = this.userService.getUsers();
-        console.log(this.usersList)
-        for(let balance of this.usersList[0].balance.interestedList) {
-            console.log(balance.user.picturePath, balance.user.name)
-        }
     }
 
     clickToRemove(event) {
@@ -31,42 +27,8 @@ export class BalancesComponent implements OnInit {
     }
 
      remove() {
-        console.log(this.clickedPerson)
-        if (this.clickedPerson !== undefined) {
-            const index = this.usersList.indexOf(this.clickedPerson)
-            // this.usersList.splice(index, 1)
-            this.usersList[index].balance = undefined;
+        this.balancesService.removeBalance(this.clickedPerson)
 
-            for(let user of this.usersList) {
-                if(user.balance) {
-                    let interestedList = user.balance.interestedList
-                    const el = interestedList.find((el) => {
-                        return el.user === this.clickedPerson
-                    })
-                    if(el!==-1) {
-                        const index = interestedList.indexOf(el)
-                        //const quota = interestedList[index].inDebt ? interestedList[index].quota *(-1) : interestedList[index].quota;
-
-                        user.balance.quota-=interestedList[index].quota;
-                        if(user.balance.quota < 0)
-                        {
-                            user.balance.quota = (-1) * user.balance.quota;
-                            user.balance.inDebt = !user.balance.inDebt;
-
-                        }
-                        interestedList.splice(index, 1)
-                        if(user.balance.interestedList.length===0)
-                        {
-                            user.balance = undefined;
-                        }
-
-                    }
-                }
-
-            }
-
-            this.clickedPerson = undefined
-        }
      }
 
 
