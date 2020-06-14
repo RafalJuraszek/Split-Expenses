@@ -5,7 +5,7 @@
 
 <StackLayout class="m-t-5">
     <AbsoluteLayout  horizontalAlignment="center">
-        <Image left="22"   class="rounded-image m-t-5" src="~/images/{{pickedUsers[0] ? pickedUsers[0].picturePath : 'rafal.jpg'}}"></Image>
+        <Image left="22"   class="rounded-image m-t-5" src="~/images/{{pickedUsers[0] ? pickedUsers[0].picturePath : 'default.jpg'}}"></Image>
         <StackLayout (tap)="userClicked(0)"  left="128" top="42" borderColor="#0081A7" borderWidth="1" backgroundColor="white" width="20" height="20">
 
             <My-Shape class="m-5" backgroundColor="#A93F55" style="clip-path: polygon(50% 100%, 0 0, 100% 0); width: 50%; height : 40%"></My-Shape>
@@ -31,14 +31,14 @@
             style="background-color: #0081A7; height: 15; width: 5.2%; clip-path: polygon(0% 0%, 100% 0, 100% 0, 50% 100%, 50% 100%);"></My-Shape>
 
     <AbsoluteLayout  horizontalAlignment="center">
-        <Image left="22"   class="rounded-image m-b-20" src="~/images/{{pickedUsers[1] ? pickedUsers[1].picturePath : 'rafal.jpg'}}"></Image>
+        <Image left="22"   class="rounded-image m-b-20" src="~/images/{{pickedUsers[1] ? pickedUsers[1].picturePath : 'default.jpg'}}"></Image>
         <StackLayout (tap)="userClicked(1)"   left="128" top="42" borderColor="#0081A7" borderWidth="1" backgroundColor="white" width="20" height="20">
 
             <My-Shape class="m-5" backgroundColor="#A93F55" style="clip-path: polygon(50% 100%, 0 0, 100% 0); width: 50%; height : 40%"></My-Shape>
 
         </StackLayout>
     </AbsoluteLayout>
-    <primary-button (tap)="save()" backgroundColor="#1E7733" value="save"></primary-button>
+    <primary-button (tap)="save()"  class="m-b-10" backgroundColor="#1E7733" value="save"></primary-button>
 
     <bottom-header-app>
 

@@ -78,6 +78,33 @@ export class AddExpenseComponent implements OnInit {
 
     save() {
 
+        if(!this.forWhat.nativeElement.text) {
+            alert('You have to write for what!')
+            return;
+        }
+        if(!this.howMuch.nativeElement.text) {
+            alert('You have to pick how much!')
+            return;
+        }
+
+        if(!this.payer) {
+            alert('You have to choose the payer');
+            return
+        }
+
+
+        let flag = true;
+        for (let i = 0; i < this.users.length; i++) {
+            if(this.howValues[i]!==undefined) {
+                flag = false;
+                break;
+            }
+
+        }
+        if(flag) {
+            alert('You have to choose the split method!')
+            return
+        }
 
         this.expenseService.addExpense(this.howValues, +this.howMuch.nativeElement.text, this.forWhat.nativeElement.text, this.payer);
         this.router.navigateByUrl('expenses');

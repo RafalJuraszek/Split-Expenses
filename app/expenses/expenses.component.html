@@ -1,5 +1,5 @@
 <header-app title="EXPENSES"></header-app>
-<GridLayout rows="auto, auto, *, *" backgroundColor="#F3F3F3" >
+<GridLayout rows="auto, auto, auto, *" backgroundColor="#F3F3F3">
     <StackLayout row="0" orientation="horizontal" horizontalAlignment="center" class="btn-group m-b-10">
         <Button text="Balances" (tap)="balances()" borderColor="#0081A7" borderRadius="10 0 0 10"></Button>
         <Button text="Settle up" (tap)="settleUp()" borderRadius="0 10 10 0"></Button>
@@ -8,24 +8,25 @@
 
     <ScrollView row="1" class="m-b-10">
 
-        <ListView height="340" [items]="user.expenses" separatorColor="transparent">
+        <ListView height="326" [items]="user.expenses" separatorColor="transparent">
 
             <ng-template let-item="item">
                 <StackLayout>
                     <StackLayout class="list-item">
-                        <AbsoluteLayout >
+                        <AbsoluteLayout>
                             <StackLayout width="20%" class="list-picture">
 
                                 <Image width="65%" height="65%" src="font://&#xf818;" class="fas m-5"></Image>
                             </StackLayout>
-                            <StackLayout left="80" >
+                            <StackLayout left="80">
                                 <Label text="{{item.name}}" class="list-name"> </Label>
                                 <Label text="{{item.date | date: 'dd.MM.yyyy'}}" class="list-date"> </Label>
 
                             </StackLayout>
                             <StackLayout left="260"
                                          [ngClass]="{'notPaidByMe': user!=item.payer,'paidByMe' : user===item.payer, 'amount' : 1}">
-                                <Label [ngClass]="{'p-l-10' : item.paidAmount < 100}" fontWeight="bold" text="{{item.paidAmount}}"></Label>
+                                <Label [ngClass]="{'p-l-10' : item.paidAmount < 100}" fontWeight="bold"
+                                       text="{{item.paidAmount}}"></Label>
                                 <Label text="PLN"></Label>
                             </StackLayout>
                         </AbsoluteLayout>
@@ -47,12 +48,12 @@
         </ListView>
 
     </ScrollView>
-    <StackLayout  row="2" >
-    <primary-button (tap)="addExpense()" ></primary-button>
+    <StackLayout row="2" verticalAlignment="bottom" class="m-b-12">
+        <primary-button (tap)="addExpense()"></primary-button>
     </StackLayout>
 
     <StackLayout row="3">
-    <bottom-header-app></bottom-header-app>
+        <bottom-header-app></bottom-header-app>
     </StackLayout>
 </GridLayout>
 
