@@ -7,7 +7,7 @@
 [Documentation](https://docs.nativescript.org/start/quick-setup#full-setup)
 
 
-## Installing Steps (Windows):
+## Installation Steps (Windows):
 
 * install Node and npm
 * install NativeScript: run `npm install -g nativescript`
@@ -76,3 +76,13 @@ After that `tns doctor`
 * `tns run android` 
 
 After some time you should see something like that:
+
+![Image10](./pictures/expenses.PNG)
+
+![Image11](./pictures/balances.PNG)
+
+![Image12](./pictures/settleup.PNG)
+
+![Image13](./pictures/addexpense.PNG)
+
+![Image14](./pictures/modal.PNG)
