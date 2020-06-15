@@ -19,11 +19,11 @@
             </StackLayout>
         </StackLayout>
         <StackLayout (tap)="whoPaid()" class="label " padding="11">
-            <Label horizontalAlignment="center" fontWeight="bold" verticalAlignment="center" text="Who paid?"
+            <Label horizontalAlignment="center" fontWeight="bold" verticalAlignment="center" [text]="payer ? payer.name: 'Who paid?'"
             ></Label>
         </StackLayout>
         <StackLayout (tap)="howToSplit()" class="label " padding="11">
-            <Label horizontalAlignment="center" fontWeight="bold" verticalAlignment="center" text="How to split?"
+            <Label horizontalAlignment="center" fontWeight="bold" verticalAlignment="center" [text]="type ? type: 'How to split?'"
             ></Label>
         </StackLayout>
     </StackLayout>

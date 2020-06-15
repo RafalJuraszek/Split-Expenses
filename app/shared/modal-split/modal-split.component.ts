@@ -40,6 +40,8 @@ export class ModalSplitComponent implements OnInit {
 
         this.users = params.context[0]
         this.equalValues = params.context[1]
+		console.log(params.context[2])
+		this.selectedIndex = params.context[2]==='unequally' ? 0 : 1;
         this.howValues = new Array<number>(this.users.length);
     }
 
@@ -50,10 +52,24 @@ export class ModalSplitComponent implements OnInit {
 
     public submit(user=null) {
 
-
+		
 
         let type= '';
         if(this.selectedIndex===0) {
+			let sum = 0;
+			let equalsum = 0;
+			for(let i=0;i<this.howValues.length;i++) {
+				equalsum+=+this.equalValues[i];
+				if(this.howValues[i]) {
+					sum+=+this.howValues[i];
+				}
+				
+			}
+			if(equalsum!==sum) {
+				alert("You have to split " +equalsum);
+				return;
+			}
+			
             type='unequally';
             this.params.closeCallback([type, this.howValues]);
         }

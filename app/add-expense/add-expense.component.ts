@@ -70,7 +70,7 @@ export class AddExpenseComponent implements OnInit {
 
         const options: ModalDialogOptions = {
             viewContainerRef: this.vcRef,
-            context: [this.users, this.howValues],
+            context: [this.users, this.howValues, this.type],
             fullscreen: false,
         };
         return this.modalService.showModal(component, options);
@@ -105,6 +105,8 @@ export class AddExpenseComponent implements OnInit {
             alert('You have to choose the split method!')
             return
         }
+		
+		
 
         this.expenseService.addExpense(this.howValues, +this.howMuch.nativeElement.text, this.forWhat.nativeElement.text, this.payer);
         this.router.navigateByUrl('expenses');
