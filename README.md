@@ -2,8 +2,14 @@
 
 > Implementation of mockups from UX classes AGH
 
+## UX Process
+* [User requirements](https://rafaljuraszek.github.io/Split-Expenses/ux-stages/User_Requirements.pdf)
+* [Sitemap and Wireframes](https://rafaljuraszek.github.io/Split-Expenses/ux-stages/Sitemap_Wireframes.pdf)
+* [Mockups](https://rafaljuraszek.github.io/Split-Expenses/ux-stages/Mockups.pdf)
+* [Tests](https://rafaljuraszek.github.io/Split-Expenses/ux-stages/Tests.pdf)
 
-## Official Documentation:
+
+## Official Documentation for setting Nativescript:
 [Documentation](https://docs.nativescript.org/start/quick-setup#full-setup)
 
 
